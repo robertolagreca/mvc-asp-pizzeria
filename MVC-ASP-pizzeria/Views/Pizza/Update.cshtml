@@ -1,0 +1,74 @@
+﻿@using MVC_ASP_pizzeria.Models;
+@model PizzaView
+
+<div class="container">
+
+    <div class="d-flex align-items-center">
+        <h1 class="text-danger">Modifica pizza</h1>
+    </div>
+
+    <form asp-controller="Pizza" asp-action="Update" asp-route-id ="@Model.Pizza.Id" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label>Id:</label>
+            <input asp-for="Pizza.Id" type="text" class="form-control" disabled />
+        </div>
+        <div class="mb-3 form-check">
+            <label>Path Immagine:</label>
+            <input asp-for="Pizza.Image" type="text" class="form-control" />
+            <span asp-validation-for="Pizza.Image" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <label>Nome:</label>
+            <input asp-for="Pizza.Name" type="text" class="form-control" />
+            <span asp-validation-for="Pizza.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <label>Descrizione:</label>
+            <textarea asp-for="Pizza.Description" rows="10" class="d-block w-100"></textarea>
+            <span asp-validation-for="Pizza.Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <label>Prezzo:</label>
+            <input asp-for="Pizza.Price" type="text" class="form-control" />
+            <span asp-validation-for="Pizza.Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <label>Categoria:</label>
+            <select asp-for="Pizza.CategoryId" rows="10" class="d-block w-100">
+                <option value=""></option> <!--Corrisponde al valore nullo per il DB-->
+                @foreach (Category category in Model.Categories)
+                {
+                    <option value="@category.Id">@category.Title</option> 
+                    <!--Corrisponde alle categorie del DB tranne valore nullo-->
+                }
+            </select>
+            <span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <label>Tag:</label>
+            <select asp-for="TagsSelectedFromMultipleSelect" asp-items="@Model.Tags" multiple size="10" class="form-control mb-2 mr-sm-2 ml-sm-3 leftList"> 
+                <!--leftList è un refuso di css-->
+            </select>
+        </div>
+
+
+
+
+
+        <!--NOTA rispetto alle slide e live coding di Bryan ho dovuto aggiungere
+            in button la proprietà formethod e specificare post, soluzione trovata su SLACK.
+            Senza attraverso il debug ho notato che non mi legge HttpPost di Create'
+        -->
+        <div class="d-grid justify-content-end">
+            <button type="submit" class="btn btn-primary btn-danger" formmethod="post">Salva</button>
+        </div>
+
+        <!-- TROVATO SU SLACK <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-secondary btn-sm btn-danger">Save</button> -->
+    </form>
+</div>
+
+

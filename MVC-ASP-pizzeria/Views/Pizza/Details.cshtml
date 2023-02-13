@@ -1,0 +1,57 @@
+﻿@using MVC_ASP_pizzeria.Models;
+@{
+	Layout = "_Layout";
+}
+@model Pizza
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="d-flex align-items-center">
+				<h1 class="mt-3 mb-3">Dettagli pizza</h1>
+			</div>
+			<div class="post-single-image-container">
+				<img src="@Model.Image" width="200">
+			</div>
+			<p>
+				<strong>Nome:</strong>
+				@Model.Name
+			</p>
+			<p>
+				<strong>Descrizione:</strong>
+				@Model.Description
+			</p>
+			<p>
+				<strong>Prezzo</strong>
+				@Model.Price
+			</p>
+
+			<!--NOTA IF AGGIUNTO IN MODO DA GESTIRE TUTTE LE PIZZE CHE NON HANNO UNA CATEGORIA
+				SE NON HANNO CATEGORIA APPARE NESSUNA CATEGORIA
+			-->
+			<p>
+				<strong>Categoria:</strong>
+				@if (Model.Category is not null)
+				{
+					@Model.Category.Title
+				} else
+				{
+					<text>Nessuna categoria</text>
+				}
+			</p>
+
+			<p>
+				<strong>Tags:</strong>
+				@foreach (Tag tag in Model.Tags)
+				{
+					<div>
+						<label>@tag.Title</label>
+					</div>
+				}
+			</p>
+
+
+		</div>
+	</div>
+</div>
+

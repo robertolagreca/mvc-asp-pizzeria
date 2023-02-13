@@ -1,0 +1,37 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin: 0px;
+}
+
+.width-txt-dim {
+    width: 20%;
+}
+
+.width-img-dim {
+    width: 200px;
+}
+
+
+.miei-buttons-post {
+    margin: 5px;
+    width: 20px;
+}
+
+.pizza .card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
