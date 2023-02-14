@@ -1,7 +1,7 @@
 ﻿@using MVC_ASP_pizzeria.Models;
 @model PizzaView
 
-<div class="container">
+<div class="container mx-auto px-auto">
 
     <div class="d-flex align-items-center">
         <h1 class="text-danger">Modifica pizza</h1>
@@ -9,33 +9,33 @@
 
     <form asp-controller="Pizza" asp-action="Update" asp-route-id ="@Model.Pizza.Id" method="post">
         @Html.AntiForgeryToken()
-        <div class="mb-3">
+        <div class="mb-3 px-0 form-check">
             <label>Id:</label>
             <input asp-for="Pizza.Id" type="text" class="form-control" disabled />
         </div>
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Path Immagine:</label>
             <input asp-for="Pizza.Image" type="text" class="form-control" />
             <span asp-validation-for="Pizza.Image" class="text-danger"></span>
         </div>
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Nome:</label>
             <input asp-for="Pizza.Name" type="text" class="form-control" />
             <span asp-validation-for="Pizza.Name" class="text-danger"></span>
         </div>
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Descrizione:</label>
             <textarea asp-for="Pizza.Description" rows="10" class="d-block w-100"></textarea>
             <span asp-validation-for="Pizza.Description" class="text-danger"></span>
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Prezzo:</label>
             <input asp-for="Pizza.Price" type="text" class="form-control" />
             <span asp-validation-for="Pizza.Price" class="text-danger"></span>
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Categoria:</label>
             <select asp-for="Pizza.CategoryId" rows="10" class="d-block w-100">
                 <option value=""></option> <!--Corrisponde al valore nullo per il DB-->
@@ -48,7 +48,7 @@
             <span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Tag:</label>
             <select asp-for="TagsSelectedFromMultipleSelect" asp-items="@Model.Tags" multiple size="10" class="form-control mb-2 mr-sm-2 ml-sm-3 leftList"> 
                 <!--leftList è un refuso di css-->

@@ -22,7 +22,7 @@
                 <img style="width:100%" src="https://external-preview.redd.it/CEYbFD42d05IHI648ZttpPwozZ5QnTnDpRWsmJhJyag.jpg?auto=webp&s=91c9209d8dbc31bffe7e5fed3e6df5a31692317f"/>
             </div>
             <div class="col-4 d-grid bg-danger align-items-center">
-                <input id="input_search" type="text" class="form-control" placeholder="Cerca per titolo..." />
+                <input id="input_search" type="text" class="form-control" placeholder="Cerca la tua pizza..." />
             </div>
         </div>
     </div>
@@ -55,6 +55,8 @@
 
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
     @section Scripts {
         <script type="text/javascript">
@@ -95,13 +97,14 @@
                                 `
                                         <div class="col-12 col-md-4 p-2">
                                             <div class="card post h-100">
-                                            <a href="/Home/Details/${pizza.id}">
+                                                  
                                                 <img src="${pizza.image}" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">${pizza.name}</h5>
                                                     <p class="card-text">${pizza.description}</p>
+                                                    <a href="/Home/Details/${pizza.id}">Maggiori dettagli</a>
                                                 </div>
-                                            </a>
+                                            
                                             </div>
                                         </div>
                                         `;

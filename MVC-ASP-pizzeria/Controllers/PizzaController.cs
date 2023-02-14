@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿    using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC_ASP_pizzeria.Database;
@@ -7,6 +8,7 @@ using MVC_ASP_pizzeria.Utils;
 
 namespace MVC_ASP_pizzeria.Controllers
 {
+    [Authorize]
     public class PizzaController : Controller
     {
         public IActionResult Index()
@@ -23,7 +25,7 @@ namespace MVC_ASP_pizzeria.Controllers
             using (PizzaContext db = new PizzaContext())
             {
                 //Con include gli dico di non usare il lazy coding e di prendermi anche l'oggetto category.
-                Pizza pizzaFound = db.Pizzas
+                     Pizza pizzaFound = db.Pizzas
                     .Where(PizzaNelDb => PizzaNelDb.Id == id)
                     .Include(pizza => pizza.Category)
                     .Include(pizza => pizza.Tags)

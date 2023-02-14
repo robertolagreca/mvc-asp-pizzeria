@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+
+<div class="container" id="pizza_container">
+
+<!--L'API inserisce il dettaglio-->   
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
+@section Scripts {
+
+        <script type="text/javascript">
+
+        const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        //axios.get(`api/pizzaswebapi/${id}`).then((res) => {
+        //const url = '/api/Pizzawebapi/';
+        axios.get('/api/Pizzawebapi/' +id ).then((res) => {
+                let pizza = res.data;
+                console.log('pizza ricevuta', pizza);
+
+
+                document.getElementById('pizza_container').innerHTML +=
+                    `
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-12 col-md-4 p-2">
+                              <div class="card post h-100">
+                                    <img src="${pizza.image}" class="card-img-top" alt="pizza">
+                                    <div class="card-body">
+                                    <h5 class="card-title">${pizza.name}</h5>
+                                    <p class="card-text mb-0">${pizza.description}</p>
+                                    <p class="card-text mb-0">Prezzo: ${pizza.price}</p>
+                                    <p class="card-text mb-0">Categoria: ${pizza.category.title}</p>
+                                    <p class="card-text mb-0">Tags: ${pizza.tags.map(tag=>tag.title)}</p>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    `;
+
+            });
+
+        </script>
+}

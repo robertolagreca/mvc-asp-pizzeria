@@ -5,33 +5,33 @@
     Layout = "_Layout";
 }
 
-<div class="container">
+<div class="container mx-auto px-auto">
     <form asp-controller="Pizza" asp-action="Create" method="post">
         @Html.AntiForgeryToken()
 
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Path Immagine:</label>
             <input asp-for="Pizza.Image" type="text" class="form-control" />
             <span asp-validation-for="Pizza.Image" class="text-danger"></span>
         </div>
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Nome:</label>
             <input asp-for="Pizza.Name" type="text" class="form-control"/>
             <span asp-validation-for="Pizza.Name" class="text-danger"></span>
         </div>
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Descrizione:</label>
             <textarea asp-for="Pizza.Description" rows="10" class="d-block w-100"></textarea>
             <span asp-validation-for="Pizza.Description" class="text-danger"></span>
         </div>
         
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0form-check">
             <label>Prezzo:</label>
             <input asp-for="Pizza.Price" type="text" class="form-control" />
             <span asp-validation-for="Pizza.Price" class="text-danger"></span>
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="mb-3 px-0 form-check">
             <label>Categoria:</label>
             <select asp-for="Pizza.CategoryId" rows="10" class="d-block w-100">
                 <option value=""></option>
@@ -43,7 +43,7 @@
             <span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 px-0 form-check">
             <label>Tag:</label>
             <select asp-for="TagsSelectedFromMultipleSelect" asp-items="@Model.Tags" multiple size="10" class="form-control mb-2 mr-sm-2 ml-sm-3 leftList">
             </select>
@@ -54,7 +54,7 @@
             in button la proprietà formethod e specificare post, soluzione trovata su SLACK.
             Senza attraverso il debug ho notato che non mi legge HttpPost di Create'
         -->
-        <div class="d-grid justify-content-end">
+        <div class="d-grid justify-content-end form-check">
         <button type="submit" class="btn btn-primary btn-danger" formmethod="post">Salva</button>
         </div>
 

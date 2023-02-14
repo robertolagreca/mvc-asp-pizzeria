@@ -3,33 +3,31 @@
 	Layout = "_Layout";
 }
 @model Pizza
-
 <div class="container">
-	<div class="row">
-		<div class="col-12">
-			<div class="d-flex align-items-center">
-				<h1 class="mt-3 mb-3">Dettagli pizza</h1>
-			</div>
-			<div class="post-single-image-container">
-				<img src="@Model.Image" width="200">
-			</div>
-			<p>
+<div class="row">
+<div class="col"></div>
+<div class="col-md-4">
+<div class="card mx-auto" style="width: 18rem;">
+	<div>
+	<img src="@Model.Image" width="200" class="card-img-top" alt="pizza">
+	</div>
+  <div class="card-body">
+    <h5 class="card-title">Dettagli</h5>
+	<p class="card-text">@Model.Description</p>
+  </div>
+  <ul class="list-group list-group-flush">
+			<li class="list-group-item"><strong>Id:</strong>
+				@Model.Id
+			</li>
+			<li class="list-group-item">
 				<strong>Nome:</strong>
 				@Model.Name
-			</p>
-			<p>
-				<strong>Descrizione:</strong>
-				@Model.Description
-			</p>
-			<p>
+			</li>
+			<li class="list-group-item">
 				<strong>Prezzo</strong>
 				@Model.Price
-			</p>
-
-			<!--NOTA IF AGGIUNTO IN MODO DA GESTIRE TUTTE LE PIZZE CHE NON HANNO UNA CATEGORIA
-				SE NON HANNO CATEGORIA APPARE NESSUNA CATEGORIA
-			-->
-			<p>
+			</li>
+			<li class="list-group-item">
 				<strong>Categoria:</strong>
 				@if (Model.Category is not null)
 				{
@@ -38,9 +36,8 @@
 				{
 					<text>Nessuna categoria</text>
 				}
-			</p>
-
-			<p>
+			</li>
+			<li class="list-group-item">
 				<strong>Tags:</strong>
 				@foreach (Tag tag in Model.Tags)
 				{
@@ -48,10 +45,12 @@
 						<label>@tag.Title</label>
 					</div>
 				}
-			</p>
+			</li>
 
-
-		</div>
-	</div>
+  </ul>
+</div>
+</div>
+<div class="col"></div>
+</div>
 </div>
 

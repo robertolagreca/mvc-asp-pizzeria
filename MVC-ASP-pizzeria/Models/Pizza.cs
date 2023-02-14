@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
+using System.Text.Json.Serialization;
 
 namespace MVC_ASP_pizzeria.Models
 {
@@ -32,6 +32,7 @@ namespace MVC_ASP_pizzeria.Models
 
 
     public int? CategoryId { get; set; }
+    
     public Category? Category { get; set; }
 
 

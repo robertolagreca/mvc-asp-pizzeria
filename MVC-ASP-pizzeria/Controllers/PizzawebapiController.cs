@@ -53,7 +53,15 @@ namespace MVC_ASP_pizzeria.Controllers
 
             using (PizzaContext db = new PizzaContext())
             {
-                Pizza pizza = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                //Pizza pizza = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+
+
+                    Pizza pizza = db.Pizzas
+                    .Where(pizza => pizza.Id == id)
+                    .Include(pizza => pizza.Category)
+                    .Include(pizza => pizza.Tags)
+                    .FirstOrDefault();
+                    
 
                 if (pizza is null)
                 {
